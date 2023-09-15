@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyu8me72a0l8c"]
+
+[ext_resource type="Script" path="res://Source/beam_test.cs" id="1_d6ed6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yet6v"]
+font_size = 22
+outline_size = 2
+outline_color = Color(0.305882, 0.305882, 0.305882, 0.737255)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.454902)
+shadow_offset = Vector2(2, 3)
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Container" type="VBoxContainer" parent="." node_paths=PackedStringArray("label", "inputAlias", "updateAlias")]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_d6ed6")
+label = NodePath("InfoLabel")
+inputAlias = NodePath("AliasInput")
+updateAlias = NodePath("UpdateAlias")
+
+[node name="InfoLabel" type="Label" parent="Container"]
+layout_mode = 2
+text = "sdadasasd"
+label_settings = SubResource("LabelSettings_yet6v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AliasInput" type="TextEdit" parent="Container"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+text = "fds"
+placeholder_text = "Alias"
+draw_spaces = true
+
+[node name="UpdateAlias" type="Button" parent="Container"]
+layout_mode = 2
+text = "Update Alias"
